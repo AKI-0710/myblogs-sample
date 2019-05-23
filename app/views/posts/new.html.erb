@@ -1,0 +1,11 @@
+<div class="input-form">
+  <%= form_for @post do |f| %>
+    <p>記事を投稿する</p>
+    <div>
+      <%= f.text_field :article, placeholder: 'ここに記事を入力' %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
