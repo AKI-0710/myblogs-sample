@@ -1,0 +1,13 @@
+<div class="contents row">
+  <div class="name">
+  </div>
+  <div class="article">
+    <p>記事内容</p>
+    <%= @post[:article] %>
+  </div>
+  <div class="delete-button">
+    <%= form_for @post, url: post_path, html: {method: 'DELETE'} do |f|%>
+      <%= f.submit(["削除する"])%>
+    <% end %>
+  </div>
+</div>
