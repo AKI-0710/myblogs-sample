@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes()
+    @posts = Post.includes(:user).order("created_at DESC")
   end
 
   def create
@@ -20,7 +20,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     post = Post.find(params[:id])
     post.destroy
     redirect_to(posts_path)
@@ -35,7 +34,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:article)
+    params.require(:post).permit(:article).merge(user_id: current_user.id)
   end
 
 end
