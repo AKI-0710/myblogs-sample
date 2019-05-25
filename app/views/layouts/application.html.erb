@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <header class="header">
+      <% if user_signed_in? %>
+        <%= current_user.nickname %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <a class="post" href="/tweets/new">投稿する</a>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path, :class => 'post'%>
+        
+
+
     <%= yield %>
   </body>
 </html>
